@@ -20,7 +20,7 @@ docker run -p 8005:8005 fastapi-app
 
 - Text File
 
-Using the provided example to submit a plaintext,txt file:
+Using the provided example to submit a plaintext.txt file:
 ```
 /example.txt
 ```
