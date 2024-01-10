@@ -18,7 +18,8 @@ docker run -p 8005:8005 fastapi-app
 
 # Test a POST request via POSTMAN:
 
-Using the provided example:
+- Text File
+Using the provided example to submit a plaintext,txt file:
 ```
 /example.txt
 ```
@@ -31,4 +32,29 @@ With:
 POST > Body > form-data > file: example.txt > SEND
 ```
 
-![image](https://github.com/lachesis17/GM-Tools/assets/78860436/5986fe53-9c5c-4989-85ec-079a3a491135)
+
+
+- String
+Using a string:
+```
+some example text
+```
+In the host application POST function path "/count_text":
+```
+http://127.0.0.1:8005/count_text
+```
+With:
+```
+POST > Body > form-data > string: some example text > SEND
+```
+
+
+- Errors:
+Using a string:
+```
+Submitting a file and a string
+```
+
+```
+Submitting nothing
+```

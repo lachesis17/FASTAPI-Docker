@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Form
 import hashlib
 
 app = FastAPI()
@@ -16,17 +16,25 @@ def get_checksum(file: str) -> str:
 
 # Set a POST request to the app with the text file, decode it
 @app.post("/count_text")
-async def decode_file(file: UploadFile = File(...)):
-    file_content = await file.read()
-    file_decoded = file_content.decode()
+async def decode_file(file: UploadFile = File(None), string: str = Form(None)):
+    if file is not None and string is not None:
+        return {"ERROR": "Please submit a file or a string, not both."}
 
-    checksum = get_checksum(file_decoded)
+    if file is not None:
+        content = await file.read()
+        content = content.decode()
+    elif string is not None:
+        content = string
+    else:
+        return {"ERROR": "Please submit a file or a string, no values provided."}
+
+    checksum = get_checksum(content)
 
     # If we have the checksum, return it's value, else add the new checksum and count the words
     if checksum in results:
         result = results[checksum]
     else:
-        result = count_words(file_decoded)
+        result = count_words(content)
         results[checksum] = result
 
     return result
