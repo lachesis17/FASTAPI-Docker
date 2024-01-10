@@ -16,7 +16,7 @@ docker build -t fastapi-app .
 docker run -p 8005:8005 fastapi-app
 ```
 
-# Test a POST request via POSTMAN:
+# Test a POST request via POSTMAN form-data:
 
 - Text File
 Using the provided example to submit a plaintext,txt file:
@@ -31,8 +31,7 @@ With:
 ```
 POST > Body > form-data > file: example.txt > SEND
 ```
-
-
+![1](https://github.com/lachesis17/FASTAPI-Docker/assets/78860436/b923ec59-7b27-48ec-81b2-ed97e7ad0f1d)
 
 - String
 Using a string:
@@ -48,13 +47,15 @@ With:
 POST > Body > form-data > string: some example text > SEND
 ```
 
+![2](https://github.com/lachesis17/FASTAPI-Docker/assets/78860436/1ceaadcd-908b-4689-80bb-e0bc8fbcc8b5)
 
 - Errors:
 Using a string:
 ```
 Submitting a file and a string
 ```
-
+![3](https://github.com/lachesis17/FASTAPI-Docker/assets/78860436/80f80efd-8844-4881-a26f-08d4e4836418)
 ```
 Submitting nothing
 ```
+![4](https://github.com/lachesis17/FASTAPI-Docker/assets/78860436/7651afe5-102a-427f-b6b7-4f06d36493b9)
