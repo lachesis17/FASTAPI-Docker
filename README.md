@@ -31,6 +31,7 @@ http://127.0.0.1:8005/count_text
 With:
 ```
 POST > Body > form-data > file: example.txt > SEND
+Content-Type: multipart/form-data
 ```
 ![1](https://github.com/lachesis17/FASTAPI-Docker/assets/78860436/b923ec59-7b27-48ec-81b2-ed97e7ad0f1d)
 
@@ -47,6 +48,7 @@ http://127.0.0.1:8005/count_text
 With:
 ```
 POST > Body > form-data > string: some example text > SEND
+Content-Type: multipart/form-data
 ```
 
 ![2](https://github.com/lachesis17/FASTAPI-Docker/assets/78860436/1ceaadcd-908b-4689-80bb-e0bc8fbcc8b5)
